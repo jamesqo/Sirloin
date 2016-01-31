@@ -64,6 +64,21 @@ namespace Sirloin
             o.splitView.IsPaneOpen = args.NewValue;
         }
 
+        // LowerItems:
+
+        public ItemCollection LowerItems =>
+            this.GetValue<ItemCollection>(LowerItemsProperty);
+
+        public static DependencyProperty LowerItemsProperty { get; } =
+            Dependency.Register<ItemCollection, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
+
+        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ItemCollection> args)
+        {
+            var src = args.NewValue;
+            var dest = o.lowerView.Items;
+            dest.ReplaceWith(src);
+        }
+
         // LowerSource:
 
         public object LowerSource
@@ -78,6 +93,21 @@ namespace Sirloin
         private static void LowerSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.lowerView.ItemsSource = args.NewValue;
+        }
+
+        // UpperItems:
+
+        public ItemCollection UpperItems =>
+            this.GetValue<ItemCollection>(UpperItemsProperty);
+
+        public static DependencyProperty UpperItemsProperty { get; } =
+            Dependency.Register<ItemCollection, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
+
+        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ItemCollection> args)
+        {
+            var src = args.NewValue;
+            var dest = o.upperView.Items;
+            dest.ReplaceWith(src);
         }
 
         // UpperSource:
