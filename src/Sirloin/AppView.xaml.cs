@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
@@ -18,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Sirloin
 {
+    [ContentProperty(Name = nameof(FrameContent))]
     public sealed partial class AppView : UserControl
     {
         public static AppView Current { get; private set; }
@@ -44,6 +46,22 @@ namespace Sirloin
         private static void BottomViewSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.bottomView.ItemsSource = args.NewValue;
+        }
+
+        // FrameContent:
+
+        public object FrameContent
+        {
+            get { return this.GetValue<object>(FrameContentProperty); }
+            set { this.SetValue(FrameContentProperty, value); }
+        }
+
+        public static DependencyProperty FrameContentProperty { get; } =
+            Dependency.Register<object, AppView>(nameof(FrameContent), FrameContentPropertyChanged);
+
+        private static void FrameContentPropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        {
+            o.frame.Content = args.NewValue;
         }
 
         // IsPaneOpen:
