@@ -9,6 +9,10 @@
     mc:Ignorable="d">
 
     <s:AppView>
+        <s:AppView.BottomViewSource>
+            <s:MenuItem Symbol="Contact"/>
+        </s:AppView.BottomViewSource>
+        
         <Grid Background="White">
             <StackPanel HorizontalAlignment="Center"
                        VerticalAlignment="Center">
