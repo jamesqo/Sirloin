@@ -20,7 +20,7 @@ namespace Sirloin
 {
     public sealed partial class AppView : UserControl
     {
-        public AppView Current { get; private set; }
+        public static AppView Current { get; private set; }
 
         // Expose the GUI elements via properties
         public Frame Frame => this.frame;
