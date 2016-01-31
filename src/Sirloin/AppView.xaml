@@ -42,12 +42,12 @@
                 </Button>
 
                 <!--Buttons just below the hamburger-->
-                <ListView x:Name="topView" 
+                <ListView x:Name="upperView" 
                           Grid.Row="1"
                           ItemTemplate="{StaticResource ListViewItemTemplate}"/>
 
                 <!--Buttons toward the bottom of the menu-->
-                <ListView x:Name="bottomView" 
+                <ListView x:Name="lowerView" 
                           Grid.Row="3"
                           ItemTemplate="{StaticResource ListViewItemTemplate}"/>
             </Grid>

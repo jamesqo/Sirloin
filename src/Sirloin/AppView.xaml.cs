@@ -27,26 +27,10 @@ namespace Sirloin
         // Expose the GUI elements via properties
         public Frame Frame => this.frame;
         public SplitView SplitView => this.splitView;
-        public ListView TopView => this.topView;
-        public ListView BottomView => this.bottomView;
+        public ListView UpperView => this.upperView;
+        public ListView LowerView => this.lowerView;
 
         // Begin dependency property cruft
-
-        // BottomViewSource:
-
-        public object BottomViewSource
-        {
-            get { return this.GetValue<object>(BottomViewSourceProperty); }
-            set { this.SetValue(BottomViewSourceProperty, value); }
-        }
-
-        public static DependencyProperty BottomViewSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(BottomViewSource), BottomViewSourcePropertyChanged);
-
-        private static void BottomViewSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
-        {
-            o.bottomView.ItemsSource = args.NewValue;
-        }
 
         // FrameContent:
 
@@ -80,20 +64,36 @@ namespace Sirloin
             o.splitView.IsPaneOpen = args.NewValue;
         }
 
-        // TopViewSource:
+        // LowerSource:
 
-        public object TopViewSource
+        public object LowerSource
         {
-            get { return this.GetValue<object>(TopViewSourceProperty); }
-            set { this.SetValue(TopViewSourceProperty, value); }
+            get { return this.GetValue<object>(LowerSourceProperty); }
+            set { this.SetValue(LowerSourceProperty, value); }
         }
 
-        public static DependencyProperty TopViewSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(TopViewSource), TopViewSourcePropertyChanged);
+        public static DependencyProperty LowerSourceProperty { get; } =
+            Dependency.Register<object, AppView>(nameof(LowerSource), LowerSourcePropertyChanged);
 
-        private static void TopViewSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void LowerSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
         {
-            o.topView.ItemsSource = args.NewValue;
+            o.lowerView.ItemsSource = args.NewValue;
+        }
+
+        // UpperSource:
+
+        public object UpperSource
+        {
+            get { return this.GetValue<object>(UpperSourceProperty); }
+            set { this.SetValue(UpperSourceProperty, value); }
+        }
+
+        public static DependencyProperty UpperSourceProperty { get; } =
+            Dependency.Register<object, AppView>(nameof(UpperSource), UpperSourcePropertyChanged);
+
+        private static void UpperSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        {
+            o.upperView.ItemsSource = args.NewValue;
         }
 
         // End dependency property cruft
