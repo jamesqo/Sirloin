@@ -66,13 +66,16 @@ namespace Sirloin
 
         // LowerItems:
 
-        public ItemCollection LowerItems =>
-            this.GetValue<ItemCollection>(LowerItemsProperty);
+        public IEnumerable<object> LowerItems
+        {
+            get { return this.GetValue<IEnumerable<object>>(LowerItemsProperty); }
+            set { this.SetValue(LowerItemsProperty, value); }
+        }
 
         public static DependencyProperty LowerItemsProperty { get; } =
-            Dependency.Register<ItemCollection, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
+            Dependency.Register<IEnumerable<object>, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
 
-        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ItemCollection> args)
+        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<IEnumerable<object>> args)
         {
             var src = args.NewValue;
             var dest = o.lowerView.Items;
@@ -97,13 +100,16 @@ namespace Sirloin
 
         // UpperItems:
 
-        public ItemCollection UpperItems =>
-            this.GetValue<ItemCollection>(UpperItemsProperty);
+        public IEnumerable<object> UpperItems
+        {
+            get { return this.GetValue<IEnumerable<object>>(UpperItemsProperty); }
+            set { this.SetValue(UpperItemsProperty, value); }
+        }
 
         public static DependencyProperty UpperItemsProperty { get; } =
-            Dependency.Register<ItemCollection, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
+            Dependency.Register<IEnumerable<object>, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
 
-        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ItemCollection> args)
+        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<IEnumerable<object>> args)
         {
             var src = args.NewValue;
             var dest = o.upperView.Items;

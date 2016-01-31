@@ -111,6 +111,7 @@
     <Compile Include="AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CollectionExtensions.cs" />
     <Compile Include="Helpers\Dependency.cs" />
     <Compile Include="Helpers\DictionaryExtensions.cs" />
     <Compile Include="Helpers\IPropertyChangedArgs.cs" />
