@@ -66,16 +66,13 @@ namespace Sirloin
 
         // LowerItems:
 
-        public IEnumerable<object> LowerItems
-        {
-            get { return this.GetValue<IEnumerable<object>>(LowerItemsProperty); }
-            set { this.SetValue(LowerItemsProperty, value); }
-        }
+        public ObservableList LowerItems =>
+            this.GetValue<ObservableList>(LowerItemsProperty);
 
         public static DependencyProperty LowerItemsProperty { get; } =
-            Dependency.Register<IEnumerable<object>, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
+            Dependency.Register<ObservableList, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
 
-        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<IEnumerable<object>> args)
+        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableList> args)
         {
             var src = args.NewValue;
             var dest = o.lowerView.Items;
@@ -100,16 +97,13 @@ namespace Sirloin
 
         // UpperItems:
 
-        public IEnumerable<object> UpperItems
-        {
-            get { return this.GetValue<IEnumerable<object>>(UpperItemsProperty); }
-            set { this.SetValue(UpperItemsProperty, value); }
-        }
+        public ObservableList UpperItems => 
+            this.GetValue<ObservableList>(UpperItemsProperty);
 
         public static DependencyProperty UpperItemsProperty { get; } =
-            Dependency.Register<IEnumerable<object>, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
+            Dependency.Register<ObservableList, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
 
-        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<IEnumerable<object>> args)
+        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableList> args)
         {
             var src = args.NewValue;
             var dest = o.upperView.Items;

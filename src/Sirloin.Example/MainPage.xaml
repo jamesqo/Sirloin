@@ -11,6 +11,7 @@
     <s:AppView>
         <s:AppView.LowerItems>
             <s:MenuItem Symbol="Contact"/>
+            <s:MenuItem Symbol="Contact"/>
         </s:AppView.LowerItems>
         
         <Grid Background="White">

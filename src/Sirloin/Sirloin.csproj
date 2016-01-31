@@ -115,11 +115,13 @@
     <Compile Include="Helpers\Dependency.cs" />
     <Compile Include="Helpers\DictionaryExtensions.cs" />
     <Compile Include="Helpers\IPropertyChangedArgs.cs" />
+    <Compile Include="ObservableVector.cs" />
     <Compile Include="Helpers\PropertyChangedCallback.cs" />
     <Compile Include="Helpers\PropertyChangedArgs.cs" />
     <Compile Include="Helpers\Binding.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VectorChangedArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppView.xaml">
