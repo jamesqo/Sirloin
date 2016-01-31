@@ -13,7 +13,8 @@ namespace Sirloin.Helpers
     {
         private Binding()
         {
-            Debug.Fail("This class shouldn't be instantiated. Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
+            Debug.Fail(@"This class shouldn't be instantiated.
+Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
         }
 
         public static DependencyProperty ContentProperty { get; } =

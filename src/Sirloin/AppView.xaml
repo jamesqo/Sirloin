@@ -14,9 +14,9 @@
         <ResourceDictionary>
             <Style x:Key="MenuButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="h:Binding.Content" Value="Symbol"/>
+                <Setter Property="h:Binding.Content" Value="Path=Symbol"/>
                 <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
-                <Setter Property="h:Binding.Width" Value="splitView.CompactPaneLength"/>
+                <Setter Property="h:Binding.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
             </Style>
             
             <DataTemplate x:Key="ListViewItemTemplate">

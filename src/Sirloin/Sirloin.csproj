@@ -112,7 +112,7 @@
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Dependency.cs" />
-    <Compile Include="Helpers\DependencyObjectExtensions.cs" />
+    <Compile Include="Helpers\DictionaryExtensions.cs" />
     <Compile Include="Helpers\IPropertyChangedArgs.cs" />
     <Compile Include="Helpers\PropertyChangedCallback.cs" />
     <Compile Include="Helpers\PropertyChangedArgs.cs" />
