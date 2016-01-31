@@ -28,6 +28,58 @@ namespace Sirloin
         public ListView TopView => this.topView;
         public ListView BottomView => this.bottomView;
 
+        // Begin dependency property cruft
+
+        // BottomViewSource:
+
+        public object BottomViewSource
+        {
+            get { return this.GetValue<object>(BottomViewSourceProperty); }
+            set { this.SetValue(BottomViewSourceProperty, value); }
+        }
+
+        public static DependencyProperty BottomViewSourceProperty { get; } =
+            Dependency.Register<object, AppView>(nameof(BottomViewSource), BottomViewSourcePropertyChanged);
+
+        private static void BottomViewSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        {
+            o.bottomView.ItemsSource = args.NewValue;
+        }
+
+        // IsPaneOpen:
+
+        public bool IsPaneOpen
+        {
+            get { return this.GetValue<bool>(IsPaneOpenProperty); }
+            set { this.SetValue(IsPaneOpenProperty, value); }
+        }
+
+        public static DependencyProperty IsPaneOpenProperty { get; } =
+            Dependency.Register<bool, AppView>(nameof(IsPaneOpen), IsPaneOpenPropertyChanged);
+
+        private static void IsPaneOpenPropertyChanged(AppView o, IPropertyChangedArgs<bool> args)
+        {
+            o.splitView.IsPaneOpen = args.NewValue;
+        }
+
+        // TopViewSource:
+
+        public object TopViewSource
+        {
+            get { return this.GetValue<object>(TopViewSourceProperty); }
+            set { this.SetValue(TopViewSourceProperty, value); }
+        }
+
+        public static DependencyProperty TopViewSourceProperty { get; } =
+            Dependency.Register<object, AppView>(nameof(TopViewSource), TopViewSourcePropertyChanged);
+
+        private static void TopViewSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        {
+            o.topView.ItemsSource = args.NewValue;
+        }
+
+        // End dependency property cruft
+
         public AppView()
         {
             this.InitializeComponent();
