@@ -22,6 +22,8 @@ namespace Sirloin
     {
         public AppView Current { get; private set; }
 
+        // Expose the GUI elements via properties
+        public Frame Frame => this.frame;
         public SplitView SplitView => this.splitView;
         public ListView TopView => this.topView;
         public ListView BottomView => this.bottomView;
@@ -31,6 +33,12 @@ namespace Sirloin
             this.InitializeComponent();
 
             this.Loaded += (o, e) => Current = this;
+        }
+
+        private void OnHamburgerClicked(object sender, RoutedEventArgs e)
+        {
+            var splitView = this.splitView; // save a field access
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
     }
 }

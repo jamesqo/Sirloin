@@ -57,33 +57,55 @@ namespace Sirloin.Helpers
 
         private static Windows.UI.Xaml.Data.Binding CreateBindingFromParams(IDictionary<string, string> dict)
         {
-            // Parse the enums using Enum.TryParse
+            var binding = new Windows.UI.Xaml.Data.Binding();
+
+            // Parse the enums first
             BindingMode mode;
-            Enum.TryParse(dict.GetOrDefault("Mode"), out mode);
+            if (Enum.TryParse(dict.GetOrDefault("Mode"), out mode)) binding.Mode = mode;
 
             RelativeSourceMode sourceMode;
-            Enum.TryParse(dict.GetOrDefault("RelativeSource"), out sourceMode);
-
-            UpdateSourceTrigger trigger;
-            Enum.TryParse(dict.GetOrDefault("UpdateSourceTrigger"), out trigger);
-
-            return new Windows.UI.Xaml.Data.Binding
+            if (Enum.TryParse(dict.GetOrDefault("RelativeSource"), out sourceMode))
             {
-                /* Converter = SOMETHING, */
-                ConverterLanguage = dict.GetOrDefault("ConverterLanguage"),
-                ConverterParameter = dict.GetOrDefault("ConverterParameter"),
-                ElementName = dict.GetOrDefault("ElementName"),
-                FallbackValue = dict.GetOrDefault("FallbackValue"),
-                Mode = mode,
-                Path = new PropertyPath(dict.GetOrDefault("Path")),
-                RelativeSource = new RelativeSource
+                binding.RelativeSource = new RelativeSource
                 {
                     Mode = sourceMode
-                },
-                Source = dict.GetOrDefault("Source"),
-                TargetNullValue = dict.GetOrDefault("TargetNullValue"),
-                UpdateSourceTrigger = trigger
-            };
+                };
+            }
+
+            UpdateSourceTrigger trigger;
+            if (Enum.TryParse(dict.GetOrDefault("UpdateSourceTrigger"), out trigger))
+            {
+                binding.UpdateSourceTrigger = trigger;
+            }
+
+            // Then the other stuff
+            // var converter = SOMETHING;
+            var converterLanguage = dict.GetOrDefault("ConverterLanguage");
+            var converterParameter = dict.GetOrDefault("ConverterParameter");
+            var elementName = dict.GetOrDefault("ElementName");
+            var fallbackValue = dict.GetOrDefault("FallbackValue");
+            var path = dict.GetOrDefault("Path");
+            var source = dict.GetOrDefault("Source");
+            var targetNullValue = dict.GetOrDefault("TargetNullValue");
+
+            // And now for the null checks...
+            if (converterLanguage != null)
+                binding.ConverterLanguage = converterLanguage;
+            if (converterParameter != null)
+                binding.ConverterParameter = converterParameter;
+            if (elementName != null)
+                binding.ElementName = elementName;
+            if (fallbackValue != null)
+                binding.FallbackValue = fallbackValue;
+            if (path != null)
+                binding.Path = new PropertyPath(path);
+            if (source != null)
+                binding.Source = source;
+            if (targetNullValue != null)
+                binding.TargetNullValue = targetNullValue;
+
+            // Done!
+            return binding;
         }
 
         private static Dictionary<string, string> ParseBindingParams(string binding, IEqualityComparer<string> comparer = null)

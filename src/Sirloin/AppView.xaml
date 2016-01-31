@@ -16,6 +16,7 @@
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="h:Binding.Content" Value="Path=Symbol"/>
                 <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+                <Setter Property="h:Binding.Height" Value="Path=CompactPaneLength, ElementName=splitView"/>
                 <Setter Property="h:Binding.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
             </Style>
             
@@ -36,7 +37,7 @@
                 </Grid.RowDefinitions>
                 
                 <!--The hamburger-->
-                <Button Grid.Row="0" Style="{StaticResource MenuButtonStyle}">
+                <Button Click="OnHamburgerClicked" Grid.Row="0" Style="{StaticResource MenuButtonStyle}">
                     <Button.DataContext>
                         <local:MenuItem Symbol="&#xE700;"/>
                     </Button.DataContext>
@@ -53,5 +54,9 @@
                           ItemTemplate="{StaticResource ListViewItemTemplate}"/>
             </Grid>
         </SplitView.Pane>
+        
+        <SplitView.Content>
+            <Frame x:Name="frame" Background="White"/>
+        </SplitView.Content>
     </SplitView>
 </UserControl>

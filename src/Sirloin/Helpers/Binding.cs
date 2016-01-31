@@ -29,6 +29,18 @@ Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
         private static void ContentPropertyChanged(ContentControl o, IPropertyChangedArgs<string> args) =>
             o.BindTo(ContentControl.ContentProperty, args.NewValue);
 
+        public static DependencyProperty HeightProperty { get; } =
+            Dependency.RegisterAttached<string, FrameworkElement, Binding>("Height", HeightPropertyChanged);
+
+        public static string GetHeight(DependencyObject o) =>
+            o.GetValue<string>(HeightProperty);
+
+        public static void SetHeight(DependencyObject o, string value) =>
+            o.SetValue(HeightProperty, value);
+
+        private static void HeightPropertyChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
+            o.BindTo(FrameworkElement.HeightProperty, args.NewValue);
+
         public static DependencyProperty WidthProperty { get; } =
             Dependency.RegisterAttached<string, FrameworkElement, Binding>("Width", WidthPropertyChanged);
 
