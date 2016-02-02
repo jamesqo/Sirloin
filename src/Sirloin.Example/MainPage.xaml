@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <s:AppView>
+    <s:AppView x:Name="AppView">
         <s:AppView.LowerItems>
             <s:MenuItem Symbol="Contact"/>
             <s:MenuItem Symbol="Contact"/>
