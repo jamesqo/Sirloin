@@ -22,6 +22,11 @@
         <DataTemplate x:Key="ListViewItemTemplate">
             <Button Style="{StaticResource MenuButtonStyle}"/>
         </DataTemplate>
+
+        <Style x:Key="ListViewStyle" TargetType="ListView">
+            <Setter Property="ItemTemplate" Value="{StaticResource ListViewItemTemplate}"/>
+            <Setter Property="h:Binding.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
+        </Style>
     </UserControl.Resources>
 
     <SplitView x:Name="splitView" DisplayMode="CompactOverlay">
@@ -44,12 +49,12 @@
                 <!--Buttons just below the hamburger-->
                 <ListView x:Name="upperView" 
                           Grid.Row="1"
-                          ItemTemplate="{StaticResource ListViewItemTemplate}"/>
+                          Style="{StaticResource ListViewStyle}"/>
 
                 <!--Buttons toward the bottom of the menu-->
                 <ListView x:Name="lowerView" 
                           Grid.Row="3"
-                          ItemTemplate="{StaticResource ListViewItemTemplate}"/>
+                          Style="{StaticResource ListViewStyle}"/>
             </Grid>
         </SplitView.Pane>
 
