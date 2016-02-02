@@ -21,6 +21,10 @@
                            Text="Hello, world!"/>
                 <TextBlock HorizontalAlignment="Center"
                            Text="Yes, the nested menus are intentional."/>
+                <Button x:Name="DebugButton" 
+                        Click="OnDebugButtonClicked"
+                        Content="Break"
+                        HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
     </s:AppView>
