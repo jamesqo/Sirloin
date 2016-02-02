@@ -47,33 +47,43 @@ namespace Sirloin.Example
             }
 #endif
 
-            Frame rootFrame = Window.Current.Content as Frame;
+            var rootView = Window.Current.Content as AppView;
+
+            // TODO: Replace this when C# 7 introduces local functions.
+            var loadFirstPage = new Action(() =>
+            {
+                var frame = rootView.Frame;
+
+                if (frame.Content == null) // If we haven't navigated to a page yet...
+                    frame.Navigate(typeof(MainPage), e.Arguments); // go to the first one
+            });
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (rootFrame == null)
+            if (rootView == null)
             {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                // Create a AppView to act as the navigation context and navigate to the first page
+                rootView = new AppView();
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                // We can't use the AppView's Frame yet since it's still loading,
+                // so hook up a few handlers to the rootView.Loaded event.
+                rootView.Loaded += (o, args) => rootView.Frame.NavigationFailed += OnNavigationFailed;
+                rootView.Loaded += (o, args) => loadFirstPage();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
                 }
 
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+                // Place the view in the current Window
+                Window.Current.Content = rootView;
+            }
+            else
+            {
+                // Just do it.
+                loadFirstPage();
             }
 
-            if (rootFrame.Content == null)
-            {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
-            }
             // Ensure the current window is active
             Window.Current.Activate();
         }
