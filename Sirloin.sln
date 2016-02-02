@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirloin", "src\Sirloin\Sirloin.csproj", "{6BFFA71B-8CD9-4B8F-BFC1-DB8DD8C36532}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirloin.Example", "src\Sirloin.Example\Sirloin.Example.csproj", "{75B79235-DE99-4D96-A4FC-6C1AEF769563}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,26 @@ Global
 		{6BFFA71B-8CD9-4B8F-BFC1-DB8DD8C36532}.Release|x64.Build.0 = Release|x64
 		{6BFFA71B-8CD9-4B8F-BFC1-DB8DD8C36532}.Release|x86.ActiveCfg = Release|x86
 		{6BFFA71B-8CD9-4B8F-BFC1-DB8DD8C36532}.Release|x86.Build.0 = Release|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|ARM.ActiveCfg = Debug|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|ARM.Build.0 = Debug|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|ARM.Deploy.0 = Debug|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x64.ActiveCfg = Debug|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x64.Build.0 = Debug|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x64.Deploy.0 = Debug|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x86.ActiveCfg = Debug|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x86.Build.0 = Debug|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Debug|x86.Deploy.0 = Debug|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|Any CPU.ActiveCfg = Release|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|ARM.ActiveCfg = Release|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|ARM.Build.0 = Release|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|ARM.Deploy.0 = Release|ARM
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x64.ActiveCfg = Release|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x64.Build.0 = Release|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x64.Deploy.0 = Release|x64
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.ActiveCfg = Release|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.Build.0 = Release|x86
+		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
