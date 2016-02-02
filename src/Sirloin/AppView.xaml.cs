@@ -1,4 +1,5 @@
-﻿using Sirloin.Helpers;
+﻿using Collections;
+using Sirloin.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,13 +67,13 @@ namespace Sirloin
 
         // LowerItems:
 
-        public ObservableList LowerItems =>
-            this.GetValue<ObservableList>(LowerItemsProperty);
+        public ObservableVector LowerItems =>
+            this.GetValue<ObservableVector>(LowerItemsProperty);
 
         public static DependencyProperty LowerItemsProperty { get; } =
-            Dependency.Register<ObservableList, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
+            Dependency.Register<ObservableVector, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
 
-        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableList> args)
+        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableVector> args)
         {
             var src = args.NewValue;
             var dest = o.lowerView.Items;
@@ -97,13 +98,13 @@ namespace Sirloin
 
         // UpperItems:
 
-        public ObservableList UpperItems => 
-            this.GetValue<ObservableList>(UpperItemsProperty);
+        public ObservableVector UpperItems => 
+            this.GetValue<ObservableVector>(UpperItemsProperty);
 
         public static DependencyProperty UpperItemsProperty { get; } =
-            Dependency.Register<ObservableList, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
+            Dependency.Register<ObservableVector, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
 
-        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableList> args)
+        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableVector> args)
         {
             var src = args.NewValue;
             var dest = o.upperView.Items;
