@@ -1,5 +1,4 @@
-﻿using Collections;
-using Sirloin.Helpers;
+﻿using Sirloin.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +29,10 @@ namespace Sirloin
         public SplitView SplitView => this.splitView;
         public ListView UpperView => this.upperView;
         public ListView LowerView => this.lowerView;
+
+        // Expose the Items as regular CLR properties
+        public ItemCollection LowerItems => lowerView.Items;
+        public ItemCollection UpperItems => upperView.Items;
 
         // Begin dependency property cruft
 
@@ -65,21 +68,6 @@ namespace Sirloin
             o.splitView.IsPaneOpen = args.NewValue;
         }
 
-        // LowerItems:
-
-        public ObservableVector LowerItems =>
-            this.GetValue<ObservableVector>(LowerItemsProperty);
-
-        public static DependencyProperty LowerItemsProperty { get; } =
-            Dependency.Register<ObservableVector, AppView>(nameof(LowerItems), LowerItemsPropertyChanged);
-
-        private static void LowerItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableVector> args)
-        {
-            var src = args.NewValue;
-            var dest = o.lowerView.Items;
-            dest.ReplaceWith(src);
-        }
-
         // LowerSource:
 
         public object LowerSource
@@ -94,21 +82,6 @@ namespace Sirloin
         private static void LowerSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.lowerView.ItemsSource = args.NewValue;
-        }
-
-        // UpperItems:
-
-        public ObservableVector UpperItems => 
-            this.GetValue<ObservableVector>(UpperItemsProperty);
-
-        public static DependencyProperty UpperItemsProperty { get; } =
-            Dependency.Register<ObservableVector, AppView>(nameof(UpperItems), UpperItemsPropertyChanged);
-
-        private static void UpperItemsPropertyChanged(AppView o, IPropertyChangedArgs<ObservableVector> args)
-        {
-            var src = args.NewValue;
-            var dest = o.upperView.Items;
-            dest.ReplaceWith(src);
         }
 
         // UpperSource:
