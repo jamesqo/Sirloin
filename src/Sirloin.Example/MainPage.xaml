@@ -9,6 +9,11 @@
     mc:Ignorable="d">
 
     <s:AppView x:Name="AppView">
+        <s:AppView.UpperItems>
+            <s:MenuItem Symbol="Contact"/>
+            <s:MenuItem Symbol="Contact"/>
+        </s:AppView.UpperItems>
+        
         <s:AppView.LowerItems>
             <s:MenuItem Symbol="Contact"/>
             <s:MenuItem Symbol="Contact"/>
