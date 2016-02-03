@@ -24,6 +24,7 @@
         </DataTemplate>
 
         <Style x:Key="ListViewStyle" TargetType="ListView">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="ItemTemplate" Value="{StaticResource ListViewItemTemplate}"/>
             <Setter Property="h:Binding.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
         </Style>
