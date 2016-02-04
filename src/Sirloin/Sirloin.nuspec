@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Sirloin</id>
+    <version>$version$</version>
+    <authors>James Ko</authors>
+    <licenseUrl>http://github.com/jamesqo/Sirloin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://github.com/jamesqo/Sirloin</projectUrl>
+    <description>
+    Sirloin makes it easy to add a hamburger menu to your Windows 10 app. It supports .NET languages, C++, and JS.
+
+    Find us on GitHub at https://github.com/jamesqo/Sirloin
+    </description>
+    <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
+  </metadata>
+  <files>
+      <file src="bin\Release\Sirloin.winmd" target="lib\.NETCore50" />
+  </files>
+</package>
