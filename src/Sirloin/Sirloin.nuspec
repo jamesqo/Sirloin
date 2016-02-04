@@ -4,6 +4,7 @@
     <id>Sirloin</id>
     <version>$version$</version>
     <authors>James Ko</authors>
+    <iconUrl>http://i.imgur.com/kRQMg2V.png</iconUrl>
     <licenseUrl>http://github.com/jamesqo/Sirloin/blob/master/LICENSE</licenseUrl>
     <projectUrl>http://github.com/jamesqo/Sirloin</projectUrl>
     <description>
