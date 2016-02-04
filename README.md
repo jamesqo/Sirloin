@@ -26,4 +26,4 @@ TBC.
 
 ## License
 
-[BSD 2-clause](LICENSE)
+[BSD](LICENSE) (2-clause)
