@@ -1,8 +1,5 @@
 # Sirloin
 
+<img src="http://i.imgur.com/kRQMg2V.png" width="30%"/>
+
 The easiest way to implement a hamburger menu in your UWP app.
-
-## TODO
-
-- Add build scripts
-- Move Sirloin.Example into a `samples/` directory
