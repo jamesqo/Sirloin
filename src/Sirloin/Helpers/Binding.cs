@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Typed.Xaml;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -21,10 +22,10 @@ Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
             Dependency.RegisterAttached<string, ContentControl, Binding>("Content", ContentPropertyChanged);
 
         public static string GetContent(DependencyObject o) =>
-            o.GetValue<string>(ContentProperty);
+            o.Get<string>(ContentProperty);
 
         public static void SetContent(DependencyObject o, string value) =>
-            o.SetValue(ContentProperty, value);
+            o.Set(ContentProperty, value);
 
         private static void ContentPropertyChanged(ContentControl o, IPropertyChangedArgs<string> args) =>
             o.BindTo(ContentControl.ContentProperty, args.NewValue);
@@ -33,10 +34,10 @@ Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
             Dependency.RegisterAttached<string, FrameworkElement, Binding>("Height", HeightPropertyChanged);
 
         public static string GetHeight(DependencyObject o) =>
-            o.GetValue<string>(HeightProperty);
+            o.Get<string>(HeightProperty);
 
         public static void SetHeight(DependencyObject o, string value) =>
-            o.SetValue(HeightProperty, value);
+            o.Set(HeightProperty, value);
 
         private static void HeightPropertyChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
             o.BindTo(FrameworkElement.HeightProperty, args.NewValue);
@@ -45,10 +46,10 @@ Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
             Dependency.RegisterAttached<string, FrameworkElement, Binding>("Width", WidthPropertyChanged);
 
         public static string GetWidth(DependencyObject o) =>
-            o.GetValue<string>(WidthProperty);
+            o.Get<string>(WidthProperty);
 
         public static void SetWidth(DependencyObject o, string value) =>
-            o.SetValue(WidthProperty, value);
+            o.Set(WidthProperty, value);
 
         private static void WidthPropertyChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
             o.BindTo(FrameworkElement.WidthProperty, args.NewValue);

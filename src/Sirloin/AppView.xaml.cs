@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Typed.Xaml;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -40,14 +41,14 @@ namespace Sirloin
 
         public object FrameContent
         {
-            get { return this.GetValue<object>(FrameContentProperty); }
-            set { this.SetValue(FrameContentProperty, value); }
+            get { return this.Get<object>(FrameContentProperty); }
+            set { this.Set(FrameContentProperty, value); }
         }
 
         public static DependencyProperty FrameContentProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(FrameContent), FrameContentPropertyChanged);
+            Dependency.Register<object, AppView>(nameof(FrameContent), FrameContentChanged);
 
-        private static void FrameContentPropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void FrameContentChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.frame.Content = args.NewValue;
         }
@@ -56,14 +57,14 @@ namespace Sirloin
 
         public bool IsPaneOpen
         {
-            get { return this.GetValue<bool>(IsPaneOpenProperty); }
-            set { this.SetValue(IsPaneOpenProperty, value); }
+            get { return this.Get<bool>(IsPaneOpenProperty); }
+            set { this.Set(IsPaneOpenProperty, value); }
         }
 
         public static DependencyProperty IsPaneOpenProperty { get; } =
-            Dependency.Register<bool, AppView>(nameof(IsPaneOpen), IsPaneOpenPropertyChanged);
+            Dependency.Register<bool, AppView>(nameof(IsPaneOpen), IsPaneOpenChanged);
 
-        private static void IsPaneOpenPropertyChanged(AppView o, IPropertyChangedArgs<bool> args)
+        private static void IsPaneOpenChanged(AppView o, IPropertyChangedArgs<bool> args)
         {
             o.splitView.IsPaneOpen = args.NewValue;
         }
@@ -72,14 +73,14 @@ namespace Sirloin
 
         public object LowerSource
         {
-            get { return this.GetValue<object>(LowerSourceProperty); }
-            set { this.SetValue(LowerSourceProperty, value); }
+            get { return this.Get<object>(LowerSourceProperty); }
+            set { this.Set(LowerSourceProperty, value); }
         }
 
         public static DependencyProperty LowerSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(LowerSource), LowerSourcePropertyChanged);
+            Dependency.Register<object, AppView>(nameof(LowerSource), LowerSourceChanged);
 
-        private static void LowerSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void LowerSourceChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.lowerView.ItemsSource = args.NewValue;
         }
@@ -88,14 +89,14 @@ namespace Sirloin
 
         public object UpperSource
         {
-            get { return this.GetValue<object>(UpperSourceProperty); }
-            set { this.SetValue(UpperSourceProperty, value); }
+            get { return this.Get<object>(UpperSourceProperty); }
+            set { this.Set(UpperSourceProperty, value); }
         }
 
         public static DependencyProperty UpperSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(UpperSource), UpperSourcePropertyChanged);
+            Dependency.Register<object, AppView>(nameof(UpperSource), UpperSourceChanged);
 
-        private static void UpperSourcePropertyChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void UpperSourceChanged(AppView o, IPropertyChangedArgs<object> args)
         {
             o.upperView.ItemsSource = args.NewValue;
         }

@@ -10,7 +10,7 @@ namespace Sirloin.Helpers
     {
         public static V GetOrDefault<K, V>(this IDictionary<K, V> dict, K key)
         {
-            var result = default(V);
+            V result;
             dict.TryGetValue(key, out result);
             return result;
         }
