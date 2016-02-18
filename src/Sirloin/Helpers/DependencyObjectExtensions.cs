@@ -13,7 +13,8 @@ namespace Sirloin.Helpers
         public static void BindTo(this DependencyObject obj, DependencyProperty prop, string binding)
         {
             var comparer = StringComparer.OrdinalIgnoreCase;
-            var dict = ParseBindingParams(binding, comparer);
+            var dict = ParseBindingParams(binding)
+                .ToDictionary(p => p.Key, p => p.Value, comparer);
             var bind = CreateBindingFromParams(dict);
 
             BindingOperations.SetBinding(obj, prop, bind);
@@ -72,12 +73,9 @@ namespace Sirloin.Helpers
             return binding;
         }
 
-        private static Dictionary<string, string> ParseBindingParams(string binding, IEqualityComparer<string> comparer = null)
+        private static IEnumerable<KeyValuePair<string, string>> ParseBindingParams(string binding)
         {
-            var array = binding.Split(',');
-            return array
-                .Select(ParseBindingParam)
-                .ToDictionary(p => p.Key, p => p.Value, comparer);
+            return binding.Split(',').Select(ParseBindingParam);
         }
 
         private static KeyValuePair<string, string> ParseBindingParam(string param)
