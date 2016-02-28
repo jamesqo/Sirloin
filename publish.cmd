@@ -1,6 +1,8 @@
 @echo off
 setlocal
 
+set "dirs=*"
+
 :: Parse arguments
 :arg_loop
 
@@ -9,6 +11,16 @@ if "%~1" == "" goto args_done
 if /i "%~1" == "-h" goto usage
 if /i "%~1" == "-?" goto usage
 if /i "%~1" == "--help" goto usage
+
+if /i "%~1" == "-d" (
+    set "dirs=%~2"
+    shift
+)
+
+if /i "%~1" == "--dirs" (
+    set "dirs=%~2"
+    shift
+)
 
 if /i "%~1" == "-v" (
     set "version=%~2"
@@ -56,7 +68,7 @@ call "%~dp0build.cmd" -p "Any CPU" -c Release
 :: Create the packages
 set "src=%~dp0src"
 cd "%src%"
-for /d %%d in (*) do (
+for /d %%d in (%dirs%) do (
     cd "%%d"
     del /q *.nupkg > nul 2>&1
     "%nuget%" pack %%d.nuspec -Prop Version=%version%
