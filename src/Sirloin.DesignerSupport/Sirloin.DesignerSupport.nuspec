@@ -8,7 +8,7 @@
     <licenseUrl>http://github.com/jamesqo/Sirloin/blob/master/LICENSE</licenseUrl>
     <projectUrl>http://github.com/jamesqo/Sirloin</projectUrl>
     <description>
-    This is the infrastructure required to support Sirloin when working with the Visual Studio designer. PLEASE DO NOT USE.
+    PLEASE DO NOT USE. This is the infrastructure required to support Sirloin when working with the Visual Studio designer.
     
     Find us on GitHub at https://github.com/jamesqo/Sirloin
     </description>
