@@ -71,8 +71,12 @@ cd "%src%"
 for /d %%d in (%dirs%) do (
     cd "%%d"
     del /q *.nupkg > nul 2>&1
-    "%nuget%" pack %%d.nuspec -Prop Version=%version%
-    "%nuget%" push *.nupkg
-    del /q *.nupkg > nul
+    
+    if exist %%d.nuspec (
+        "%nuget%" pack %%d.nuspec -Prop Version=%version%
+        "%nuget%" push *.nupkg
+        del /q *.nupkg > nul
+    )
+    
     cd "%src%"
 )
