@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Sirloin.DesignerSupport</id>
+    <version>$version$</version>
+    <authors>James Ko</authors>
+    <iconUrl>http://i.imgur.com/kRQMg2V.png</iconUrl>
+    <licenseUrl>http://github.com/jamesqo/Sirloin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://github.com/jamesqo/Sirloin</projectUrl>
+    <description>
+    PLEASE DO NOT USE. This is the infrastructure required to support Sirloin when working with the Visual Studio designer.
+    
+    Find us on GitHub at https://github.com/jamesqo/Sirloin
+    </description>
+    <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
+  </metadata>
+  <files>
+      <file src="bin\Release\**" target="lib\netcore50" />
+  </files>
+</package>
