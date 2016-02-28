@@ -16,5 +16,6 @@
   </metadata>
   <files>
       <file src="bin\Release\Sirloin.winmd" target="lib\.NETCore50" />
+      <file src="bin\Release\Sirloin.DesignerSupport.dll" target="lib\.NETCore50" />
   </files>
 </package>
