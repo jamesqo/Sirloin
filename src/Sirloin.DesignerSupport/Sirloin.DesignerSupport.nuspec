@@ -9,6 +9,8 @@
     <projectUrl>http://github.com/jamesqo/Sirloin</projectUrl>
     <description>
     This is the infrastructure required to support Sirloin when working with the Visual Studio designer. PLEASE DO NOT USE.
+    
+    Find us on GitHub at https://github.com/jamesqo/Sirloin
     </description>
     <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
   </metadata>
