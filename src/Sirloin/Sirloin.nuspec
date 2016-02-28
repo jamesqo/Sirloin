@@ -15,6 +15,6 @@
     <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
   </metadata>
   <files>
-      <file src="bin\Release\Sirloin.winmd" target="lib\.NETCore50" />
+      <file src="bin\Release\**" target="lib\.NETCore50" />
   </files>
 </package>
