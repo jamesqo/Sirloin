@@ -14,8 +14,7 @@ namespace Sirloin.Internal
     {
         private Binding()
         {
-            Debug.Fail(@"This class shouldn't be instantiated.
-Perhaps you were looking for Windows.UI.Xaml.Data.Binding?");
+            throw new InvalidOperationException("This class shouldn't be instantiated.");
         }
 
         // Content
