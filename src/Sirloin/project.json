@@ -1,6 +1,7 @@
 ﻿{
 	"dependencies": {
 		"Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+		"Sirloin.DesignerSupport": "2.1.0",
 		"Typed.Xaml": "5.3.0"
 	},
 	"frameworks": {
