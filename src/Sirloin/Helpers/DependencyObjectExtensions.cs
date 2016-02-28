@@ -13,14 +13,14 @@ namespace Sirloin.Helpers
         public static void BindTo(this DependencyObject obj, DependencyProperty prop, string binding)
         {
             var comparer = StringComparer.OrdinalIgnoreCase;
-            var dict = ParseBindingParams(binding)
+            var dict = ParseBindingPairs(binding)
                 .ToDictionary(p => p.Key, p => p.Value, comparer);
-            var bind = CreateBindingFromParams(dict);
+            var bind = CreateBindingFromDictionary(dict);
 
             BindingOperations.SetBinding(obj, prop, bind);
         }
 
-        private static Windows.UI.Xaml.Data.Binding CreateBindingFromParams(IDictionary<string, string> dict)
+        private static Windows.UI.Xaml.Data.Binding CreateBindingFromDictionary(IDictionary<string, string> dict)
         {
             var binding = new Windows.UI.Xaml.Data.Binding();
 
@@ -73,15 +73,15 @@ namespace Sirloin.Helpers
             return binding;
         }
 
-        private static IEnumerable<KeyValuePair<string, string>> ParseBindingParams(string binding)
+        private static IEnumerable<KeyValuePair<string, string>> ParseBindingPairs(string input)
         {
-            return binding.Split(',').Select(ParseBindingParam);
+            return input.Split(',').Select(ParseBindingPair);
         }
 
-        private static KeyValuePair<string, string> ParseBindingParam(string param)
+        private static KeyValuePair<string, string> ParseBindingPair(string input)
         {
             var delims = new[] { '=' };
-            var results = param.Trim().Split(delims, 2);
+            var results = input.Trim().Split(delims, 2);
 
             var key = results[0].Trim();
             var value = results[1].Trim();
