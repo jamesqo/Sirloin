@@ -10,17 +10,17 @@ using Windows.UI.Xaml.Controls;
 
 namespace Sirloin.Internal
 {
-    public sealed class Binding
+    public sealed class BindingPaths
     {
-        private Binding()
+        private BindingPaths()
         {
             throw new InvalidOperationException("This class shouldn't be instantiated.");
         }
 
         // Content
 
-        public static DependencyProperty ContentProperty { get; } =
-            Dependency.RegisterAttached<string, ContentControl, Binding>("Content", OnContentChanged);
+        public static readonly DependencyProperty ContentProperty =
+            Dependency.RegisterAttached<string, ContentControl, BindingPaths>("Content", OnContentChanged);
 
         public static string GetContent(DependencyObject o) =>
             o.Get<string>(ContentProperty);
@@ -29,12 +29,12 @@ namespace Sirloin.Internal
             o.Set(ContentProperty, value);
 
         private static void OnContentChanged(ContentControl o, IPropertyChangedArgs<string> args) =>
-            o.BindTo(ContentControl.ContentProperty, args.NewValue);
+            o.SetBinding(ContentControl.ContentProperty, args.NewValue);
 
         // Height
 
-        public static DependencyProperty HeightProperty { get; } =
-            Dependency.RegisterAttached<string, FrameworkElement, Binding>("Height", OnHeightChanged);
+        public static readonly DependencyProperty HeightProperty =
+            Dependency.RegisterAttached<string, FrameworkElement, BindingPaths>("Height", OnHeightChanged);
 
         public static string GetHeight(DependencyObject o) =>
             o.Get<string>(HeightProperty);
@@ -43,12 +43,12 @@ namespace Sirloin.Internal
             o.Set(HeightProperty, value);
 
         private static void OnHeightChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
-            o.BindTo(FrameworkElement.HeightProperty, args.NewValue);
+            o.SetBinding(FrameworkElement.HeightProperty, args.NewValue);
 
         // Width
 
-        public static DependencyProperty WidthProperty { get; } =
-            Dependency.RegisterAttached<string, FrameworkElement, Binding>("Width", OnWidthChanged);
+        public static readonly DependencyProperty WidthProperty =
+            Dependency.RegisterAttached<string, FrameworkElement, BindingPaths>("Width", OnWidthChanged);
 
         public static string GetWidth(DependencyObject o) =>
             o.Get<string>(WidthProperty);
@@ -57,6 +57,6 @@ namespace Sirloin.Internal
             o.Set(WidthProperty, value);
 
         private static void OnWidthChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
-            o.BindTo(FrameworkElement.WidthProperty, args.NewValue);
+            o.SetBinding(FrameworkElement.WidthProperty, args.NewValue);
     }
 }

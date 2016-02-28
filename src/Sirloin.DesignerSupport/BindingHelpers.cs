@@ -8,25 +8,19 @@ using Windows.UI.Xaml.Data;
 
 namespace Sirloin.Internal
 {
-    internal static class DependencyObjectExtensions
+    public static class BindingHelpers
     {
-        public static void BindTo(this DependencyObject obj, DependencyProperty prop, string input)
-        {
-            var binding = CreateBindingFromString(input);
-            BindingOperations.SetBinding(obj, prop, binding);
-        }
-
-        private static Windows.UI.Xaml.Data.Binding CreateBindingFromString(string input)
+        public static Binding Parse(string input)
         {
             var comparer = StringComparer.OrdinalIgnoreCase;
-            var dict = ParseBindingPairs(input)
+            var dict = ParsePairs(input)
                 .ToDictionary(p => p.Key, p => p.Value, comparer);
-            return CreateBindingFromDictionary(dict);
+            return CreateFromDictionary(dict);
         }
 
-        private static Windows.UI.Xaml.Data.Binding CreateBindingFromDictionary(IDictionary<string, string> dict)
+        public static Binding CreateFromDictionary(IDictionary<string, string> dict)
         {
-            var binding = new Windows.UI.Xaml.Data.Binding();
+            var binding = new Binding();
 
             // Parse the enums first
             BindingMode mode;
@@ -77,12 +71,12 @@ namespace Sirloin.Internal
             return binding;
         }
 
-        private static IEnumerable<KeyValuePair<string, string>> ParseBindingPairs(string input)
+        private static IEnumerable<KeyValuePair<string, string>> ParsePairs(string input)
         {
-            return input.Split(',').Select(ParseBindingPair);
+            return input.Split(',').Select(ParsePair);
         }
 
-        private static KeyValuePair<string, string> ParseBindingPair(string input)
+        private static KeyValuePair<string, string> ParsePair(string input)
         {
             char[] delims = { '=' };
             var results = input.Trim().Split(delims, 2);
