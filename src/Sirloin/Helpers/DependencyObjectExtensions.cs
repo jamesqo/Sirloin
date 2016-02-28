@@ -80,7 +80,7 @@ namespace Sirloin.Helpers
 
         private static KeyValuePair<string, string> ParseBindingPair(string input)
         {
-            var delims = new[] { '=' };
+            char[] delims = { '=' };
             var results = input.Trim().Split(delims, 2);
 
             var key = results[0].Trim();
