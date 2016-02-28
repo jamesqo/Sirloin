@@ -22,41 +22,41 @@ namespace Sirloin.Internal
         public static readonly DependencyProperty ContentProperty =
             Dependency.RegisterAttached<string, ContentControl, BindingPaths>("Content", ContentChanged);
 
-        public static string GetContent(DependencyObject o) =>
-            o.Get<string>(ContentProperty);
+        public static string GetContent(DependencyObject obj) => obj.Get<string>(ContentProperty);
 
-        public static void SetContent(DependencyObject o, string value) =>
-            o.Set(ContentProperty, value);
+        public static void SetContent(DependencyObject obj, string value) => obj.Set(ContentProperty, value);
 
-        private static void ContentChanged(ContentControl o, IPropertyChangedArgs<string> args) =>
-            o.SetBinding(ContentControl.ContentProperty, args.NewValue);
+        private static void ContentChanged(ContentControl control, IPropertyChangedArgs<string> args)
+        {
+            control.SetBinding(ContentControl.ContentProperty, args.NewValue);
+        }
 
         // Height
 
         public static readonly DependencyProperty HeightProperty =
             Dependency.RegisterAttached<string, FrameworkElement, BindingPaths>("Height", HeightChanged);
 
-        public static string GetHeight(DependencyObject o) =>
-            o.Get<string>(HeightProperty);
+        public static string GetHeight(DependencyObject obj) => obj.Get<string>(HeightProperty);
 
-        public static void SetHeight(DependencyObject o, string value) =>
-            o.Set(HeightProperty, value);
+        public static void SetHeight(DependencyObject obj, string value) => obj.Set(HeightProperty, value);
 
-        private static void HeightChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
-            o.SetBinding(FrameworkElement.HeightProperty, args.NewValue);
+        private static void HeightChanged(FrameworkElement element, IPropertyChangedArgs<string> args)
+        {
+            element.SetBinding(FrameworkElement.HeightProperty, args.NewValue);
+        }
 
         // Width
 
         public static readonly DependencyProperty WidthProperty =
             Dependency.RegisterAttached<string, FrameworkElement, BindingPaths>("Width", WidthChanged);
 
-        public static string GetWidth(DependencyObject o) =>
-            o.Get<string>(WidthProperty);
+        public static string GetWidth(DependencyObject obj) => obj.Get<string>(WidthProperty);
 
-        public static void SetWidth(DependencyObject o, string value) =>
-            o.Set(WidthProperty, value);
+        public static void SetWidth(DependencyObject obj, string value) => obj.Set(WidthProperty, value);
 
-        private static void WidthChanged(FrameworkElement o, IPropertyChangedArgs<string> args) =>
-            o.SetBinding(FrameworkElement.WidthProperty, args.NewValue);
+        private static void WidthChanged(FrameworkElement element, IPropertyChangedArgs<string> args)
+        {
+            element.SetBinding(FrameworkElement.WidthProperty, args.NewValue);
+        }
     }
 }
