@@ -10,14 +10,18 @@ namespace Sirloin.Helpers
 {
     internal static class DependencyObjectExtensions
     {
-        public static void BindTo(this DependencyObject obj, DependencyProperty prop, string binding)
+        public static void BindTo(this DependencyObject obj, DependencyProperty prop, string input)
+        {
+            var binding = CreateBindingFromString(input);
+            BindingOperations.SetBinding(obj, prop, binding);
+        }
+
+        private static Windows.UI.Xaml.Data.Binding CreateBindingFromString(string input)
         {
             var comparer = StringComparer.OrdinalIgnoreCase;
-            var dict = ParseBindingPairs(binding)
+            var dict = ParseBindingPairs(input)
                 .ToDictionary(p => p.Key, p => p.Value, comparer);
-            var bind = CreateBindingFromDictionary(dict);
-
-            BindingOperations.SetBinding(obj, prop, bind);
+            return CreateBindingFromDictionary(dict);
         }
 
         private static Windows.UI.Xaml.Data.Binding CreateBindingFromDictionary(IDictionary<string, string> dict)
