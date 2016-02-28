@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirloin", "src\Sirloin\Sirl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirloin.Example", "samples\Sirloin.Example\Sirloin.Example.csproj", "{75B79235-DE99-4D96-A4FC-6C1AEF769563}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirloin.DesignerSupport", "src\Sirloin.DesignerSupport\Sirloin.DesignerSupport.csproj", "{FB2B9798-64F0-4C4A-AE32-34AB8C699546}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,22 @@ Global
 		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.ActiveCfg = Release|x86
 		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.Build.0 = Release|x86
 		{75B79235-DE99-4D96-A4FC-6C1AEF769563}.Release|x86.Deploy.0 = Release|x86
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|ARM.Build.0 = Debug|ARM
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|x64.ActiveCfg = Debug|x64
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|x64.Build.0 = Debug|x64
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|x86.ActiveCfg = Debug|x86
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Debug|x86.Build.0 = Debug|x86
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|ARM.ActiveCfg = Release|ARM
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|ARM.Build.0 = Release|ARM
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|x64.ActiveCfg = Release|x64
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|x64.Build.0 = Release|x64
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|x86.ActiveCfg = Release|x86
+		{FB2B9798-64F0-4C4A-AE32-34AB8C699546}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
