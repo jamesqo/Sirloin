@@ -111,9 +111,9 @@
     <Compile Include="AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DependencyObjectExtensions.cs" />
-    <Compile Include="Helpers\DictionaryExtensions.cs" />
-    <Compile Include="Helpers\Binding.cs" />
+    <Compile Include="Internal\DependencyObjectExtensions.cs" />
+    <Compile Include="Internal\DictionaryExtensions.cs" />
+    <Compile Include="Internal\Binding.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

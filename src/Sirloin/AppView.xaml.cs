@@ -1,4 +1,4 @@
-﻿using Sirloin.Helpers;
+﻿using Sirloin.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;

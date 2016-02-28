@@ -8,7 +8,7 @@ using Typed.Xaml;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Sirloin.Helpers
+namespace Sirloin.Internal
 {
     public sealed class Binding
     {
