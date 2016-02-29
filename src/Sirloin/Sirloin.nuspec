@@ -13,6 +13,10 @@
     Find us on GitHub at https://github.com/jamesqo/Sirloin
     </description>
     <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
+    <dependencies>
+      <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.0.0" />
+      <dependency id="Typed.Xaml" version="5.3.0" />
+    </dependencies>
   </metadata>
   <files>
       <file src="bin\Release\**" target="lib\.NETCore50" />
