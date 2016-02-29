@@ -122,6 +122,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sirloin.DesignerSupport\Sirloin.DesignerSupport.csproj">
+      <Project>{fb2b9798-64f0-4c4a-ae32-34ab8c699546}</Project>
+      <Name>Sirloin.DesignerSupport</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

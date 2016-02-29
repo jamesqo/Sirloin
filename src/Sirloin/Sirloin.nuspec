@@ -13,11 +13,11 @@
     Find us on GitHub at https://github.com/jamesqo/Sirloin
     </description>
     <tags>windows 10 app runtime winrt xaml hamburger menu gui ui control controls</tags>
+    <references>
+        <reference file="Sirloin.winmd" />
+    </references>
   </metadata>
   <files>
       <file src="bin\Release\**" target="lib\.NETCore50" />
   </files>
-  <references>
-    <reference file="Sirloin.winmd" />
-  </references>
 </package>
