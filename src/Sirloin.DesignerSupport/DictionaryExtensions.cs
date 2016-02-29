@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sirloin.Internal
+namespace Sirloin.DesignerSupport
 {
     internal static class DictionaryExtensions
     {

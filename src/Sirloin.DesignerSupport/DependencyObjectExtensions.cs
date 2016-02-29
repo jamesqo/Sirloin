@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace Sirloin.Internal
+namespace Sirloin.DesignerSupport
 {
     public static class DependencyObjectExtensions
     {

@@ -8,7 +8,7 @@ using Typed.Xaml;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Sirloin.Internal
+namespace Sirloin.DesignerSupport
 {
     public sealed class BindingPaths
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{FB2B9798-64F0-4C4A-AE32-34AB8C699546}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sirloin.Internal</RootNamespace>
+    <RootNamespace>Sirloin.DesignerSupport</RootNamespace>
     <AssemblyName>Sirloin.DesignerSupport</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
