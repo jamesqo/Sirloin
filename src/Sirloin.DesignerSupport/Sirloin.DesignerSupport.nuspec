@@ -17,4 +17,7 @@
   <files>
       <file src="bin\Release\**" target="lib\netcore50" />
   </files>
+  <references>
+    <reference file="Sirloin.DesignerSupport.dll" />
+  </references>
 </package>

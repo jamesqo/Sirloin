@@ -17,4 +17,7 @@
   <files>
       <file src="bin\Release\**" target="lib\.NETCore50" />
   </files>
+  <references>
+    <reference file="Sirloin.winmd" />
+  </references>
 </package>
