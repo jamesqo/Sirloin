@@ -12,22 +12,57 @@
 
     <UserControl.Resources>
         <Style x:Key="MenuButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="ds:BindingPaths.Content" Value="Path=SymbolText"/>
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
-            <Setter Property="ds:BindingPaths.Height" Value="Path=CompactPaneLength, ElementName=splitView"/>
-            <Setter Property="ds:BindingPaths.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="MinHeight" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
         </Style>
 
-        <DataTemplate x:Key="ListViewItemTemplate">
-            <Button Style="{StaticResource MenuButtonStyle}"/>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <DataTemplate x:Key="ListViewItemTemplate" x:DataType="local:MenuItem">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                    Grid.Column="0" 
+                    MinWidth="{StaticResource SplitViewCompactPaneThemeLength}" 
+                    MinHeight="{StaticResource SplitViewCompactPaneThemeLength}"
+                    >
+                    <FontIcon 
+                        x:Name="Glyph" 
+                        FontSize="16" 
+                        FontFamily="Segoe MDL2 Assets" 
+                        Glyph="{x:Bind SymbolText, Mode=OneWay}" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        ToolTipService.ToolTip="{x:Bind Label}" 
+                        />
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="{x:Bind Path=Label}" />
+                </Border>
+            </Grid>
         </DataTemplate>
 
+        <Style x:Key="ListViewItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="Height" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
         <Style x:Key="ListViewStyle" TargetType="ListView">
-            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="ItemTemplate" Value="{StaticResource ListViewItemTemplate}"/>
-            <Setter Property="Padding" Value="-12,0,0,0"/>
-            <Setter Property="ds:BindingPaths.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <!--<Setter Property="ds:BindingPaths.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>-->
+            <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemContainerStyle}" />
         </Style>
     </UserControl.Resources>
 
@@ -51,12 +86,16 @@
                 <!--Buttons just below the hamburger-->
                 <ListView x:Name="upperView" 
                           Grid.Row="1"
-                          Style="{StaticResource ListViewStyle}"/>
+                          Style="{StaticResource ListViewStyle}" 
+                          SelectionChanged="upperView_SelectionChanged"
+                          />
 
                 <!--Buttons toward the bottom of the menu-->
                 <ListView x:Name="lowerView" 
                           Grid.Row="3"
-                          Style="{StaticResource ListViewStyle}"/>
+                          Style="{StaticResource ListViewStyle}" 
+                          SelectionChanged="lowerView_SelectionChanged"
+                          />
             </Grid>
         </SplitView.Pane>
 

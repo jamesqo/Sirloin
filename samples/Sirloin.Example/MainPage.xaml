@@ -10,8 +10,8 @@
 
     <s:AppView x:Name="AppView">
         <s:AppView.UpperItems>
-            <s:MenuItem Symbol="Contact"/>
-            <s:MenuItem Symbol="Contact"/>
+            <s:MenuItem Symbol="Contact" Label="Foo" DestinationPage="Sirloin.Example.Views.FooPage, Sirloin.Example" />
+            <s:MenuItem Symbol="Contact" Label="Bar" DestinationPage="Sirloin.Example.Views.BarPage, Sirloin.Example" />
         </s:AppView.UpperItems>
         
         <s:AppView.LowerItems>

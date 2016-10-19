@@ -10,7 +10,21 @@ namespace Sirloin
     public sealed class MenuItem
     {
         public string Label { get; set; }
-        public Type DestPage { get; set; }
+        private Type destinationPageType;
+        public Type DestinationPageType
+        {
+            get { return destinationPageType; }
+        }
+        private string destinationPage;
+        public string DestinationPage
+        {
+            get { return destinationPage; }
+            set
+            {
+                destinationPage = value;
+                destinationPageType = Type.GetType(destinationPage);
+            }
+        }
         public object Argument { get; set; }
         public string SymbolText { get; set; }
 

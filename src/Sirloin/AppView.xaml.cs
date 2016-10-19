@@ -115,5 +115,33 @@ namespace Sirloin
             var splitView = this.splitView; // save a field access
             splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
+
+        private void upperView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = e.AddedItems.FirstOrDefault() as MenuItem;
+            if (selectedItem != null && selectedItem.DestinationPageType != null)
+            {
+                lowerView.SelectedItem = null;
+                frame.Navigate(selectedItem.DestinationPageType);
+            }
+            else
+            {
+                upperView.SelectedItem = null;
+            }
+        }
+
+        private void lowerView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = e.AddedItems.FirstOrDefault() as MenuItem;
+            if (selectedItem != null && selectedItem.DestinationPageType != null)
+            {
+                upperView.SelectedItem = null;
+                frame.Navigate(selectedItem.DestinationPageType);
+            }
+            else
+            {
+                lowerView.SelectedItem = null;
+            }
+        }
     }
 }
