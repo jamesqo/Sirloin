@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Sirloin
 {
-    public sealed class MenuItem
+    public sealed class HamburgerItem
     {
         public string Label { get; set; }
         private Type destinationPageType;

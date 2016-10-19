@@ -47,7 +47,7 @@ namespace Sirloin.Example
             }
 #endif
 
-            var rootView = Window.Current.Content as AppView;
+            var rootView = Window.Current.Content as Hamburger;
 
             // TODO: Replace this when C# 7 introduces local functions.
             var loadFirstPage = new Action(() =>
@@ -63,7 +63,7 @@ namespace Sirloin.Example
             if (rootView == null)
             {
                 // Create a AppView to act as the navigation context and navigate to the first page
-                rootView = new AppView();
+                rootView = new Hamburger();
 
                 // We can't use the AppView's Frame yet since it's still loading,
                 // so hook up a few handlers to the rootView.Loaded event.

@@ -8,16 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <s:AppView x:Name="AppView">
-        <s:AppView.UpperItems>
-            <s:MenuItem Symbol="Contact" Label="Foo" DestinationPage="Sirloin.Example.Views.FooPage, Sirloin.Example" />
-            <s:MenuItem Symbol="Contact" Label="Bar" DestinationPage="Sirloin.Example.Views.BarPage, Sirloin.Example" />
-        </s:AppView.UpperItems>
-        
-        <s:AppView.LowerItems>
-            <s:MenuItem Symbol="Contact"/>
-            <s:MenuItem Symbol="Contact"/>
-        </s:AppView.LowerItems>
+    <s:Hamburger x:Name="AppView">
+        <s:Hamburger.UpperItems>
+            <s:HamburgerItem Symbol="Contact" Label="Foo" DestinationPage="Sirloin.Example.Views.FooPage, Sirloin.Example" />
+            <s:HamburgerItem Symbol="Contact" Label="Bar" DestinationPage="Sirloin.Example.Views.BarPage, Sirloin.Example" />
+        </s:Hamburger.UpperItems>
+
+        <s:Hamburger.LowerItems>
+            <s:HamburgerItem Symbol="Contact"/>
+            <s:HamburgerItem Symbol="Contact"/>
+        </s:Hamburger.LowerItems>
 
         <Grid Background="White">
             <StackPanel HorizontalAlignment="Center"
@@ -32,5 +32,5 @@
                         HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
-    </s:AppView>
+    </s:Hamburger>
 </Page>
