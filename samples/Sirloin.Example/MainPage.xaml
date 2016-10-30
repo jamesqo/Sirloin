@@ -12,6 +12,9 @@
         <s:Hamburger.UpperItems>
             <s:HamburgerItem Symbol="Contact" Label="Foo" DestinationPage="Sirloin.Example.Views.FooPage, Sirloin.Example" />
             <s:HamburgerItem Symbol="Contact" Label="Bar" DestinationPage="Sirloin.Example.Views.BarPage, Sirloin.Example" />
+            <s:HamburgerItem Symbol="Accept" Label="Accept" />
+            <s:HamburgerItem Symbol="Account" Label="Account" />
+            <s:HamburgerItem Symbol="Add" Label="Add" />
         </s:Hamburger.UpperItems>
 
         <s:Hamburger.LowerItems>

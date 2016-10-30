@@ -71,8 +71,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -87,7 +87,8 @@
                 <ListView x:Name="upperView" 
                           Grid.Row="1"
                           Style="{StaticResource ListViewStyle}" 
-                          SelectionChanged="upperView_SelectionChanged"
+                          SelectionChanged="upperView_SelectionChanged" 
+                          ScrollViewer.VerticalScrollMode="Auto"
                           />
 
                 <!--Buttons toward the bottom of the menu-->
