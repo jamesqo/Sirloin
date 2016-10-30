@@ -1,0 +1,105 @@
+﻿<UserControl
+    x:Class="Sirloin.Hamburger"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sirloin"
+    xmlns:ds="using:Sirloin.DesignerSupport"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="ds:BindingPaths.Content" Value="Path=SymbolText"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="MinHeight" Value="{StaticResource SplitViewCompactPaneThemeLength}"/>
+        </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <DataTemplate x:Key="ListViewItemTemplate" x:DataType="local:HamburgerItem">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                    Grid.Column="0" 
+                    MinWidth="{StaticResource SplitViewCompactPaneThemeLength}" 
+                    MinHeight="{StaticResource SplitViewCompactPaneThemeLength}"
+                    >
+                    <FontIcon 
+                        x:Name="Glyph" 
+                        FontSize="16" 
+                        FontFamily="Segoe MDL2 Assets" 
+                        Glyph="{x:Bind SymbolText, Mode=OneWay}" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        ToolTipService.ToolTip="{x:Bind Label}" 
+                        />
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="{x:Bind Path=Label}" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="ListViewItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MinWidth" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="Height" Value="{StaticResource SplitViewCompactPaneThemeLength}" />
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Style x:Key="ListViewStyle" TargetType="ListView">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="ItemTemplate" Value="{StaticResource ListViewItemTemplate}"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <!--<Setter Property="ds:BindingPaths.Width" Value="Path=CompactPaneLength, ElementName=splitView"/>-->
+            <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemContainerStyle}" />
+        </Style>
+    </UserControl.Resources>
+
+    <SplitView x:Name="splitView" DisplayMode="CompactOverlay">
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--The hamburger-->
+                <Button Click="OnHamburgerClicked" Grid.Row="0" Style="{StaticResource MenuButtonStyle}">
+                    <Button.DataContext>
+                        <local:HamburgerItem SymbolText="&#xE700;"/>
+                    </Button.DataContext>
+                </Button>
+
+                <!--Buttons just below the hamburger-->
+                <ListView x:Name="upperView" 
+                          Grid.Row="1"
+                          Style="{StaticResource ListViewStyle}" 
+                          SelectionChanged="upperView_SelectionChanged" 
+                          ScrollViewer.VerticalScrollMode="Auto"
+                          />
+
+                <!--Buttons toward the bottom of the menu-->
+                <ListView x:Name="lowerView" 
+                          Grid.Row="3"
+                          Style="{StaticResource ListViewStyle}" 
+                          SelectionChanged="lowerView_SelectionChanged"
+                          />
+            </Grid>
+        </SplitView.Pane>
+
+        <Frame x:Name="frame" Background="White"/>
+    </SplitView>
+</UserControl>

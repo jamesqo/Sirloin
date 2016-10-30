@@ -21,9 +21,9 @@ using Windows.UI.Xaml.Navigation;
 namespace Sirloin
 {
     [ContentProperty(Name = nameof(FrameContent))]
-    public sealed partial class AppView : UserControl
+    public sealed partial class Hamburger : UserControl
     {
-        public static AppView Current { get; private set; }
+        public static Hamburger Current { get; private set; }
 
         // Expose the GUI elements via properties
         public Frame Frame => this.frame;
@@ -46,9 +46,9 @@ namespace Sirloin
         }
 
         public static DependencyProperty FrameContentProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(FrameContent), FrameContentChanged);
+            Dependency.Register<object, Hamburger>(nameof(FrameContent), FrameContentChanged);
 
-        private static void FrameContentChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void FrameContentChanged(Hamburger o, IPropertyChangedArgs<object> args)
         {
             o.frame.Content = args.NewValue;
         }
@@ -62,9 +62,9 @@ namespace Sirloin
         }
 
         public static DependencyProperty IsPaneOpenProperty { get; } =
-            Dependency.Register<bool, AppView>(nameof(IsPaneOpen), IsPaneOpenChanged);
+            Dependency.Register<bool, Hamburger>(nameof(IsPaneOpen), IsPaneOpenChanged);
 
-        private static void IsPaneOpenChanged(AppView o, IPropertyChangedArgs<bool> args)
+        private static void IsPaneOpenChanged(Hamburger o, IPropertyChangedArgs<bool> args)
         {
             o.splitView.IsPaneOpen = args.NewValue;
         }
@@ -78,9 +78,9 @@ namespace Sirloin
         }
 
         public static DependencyProperty LowerSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(LowerSource), LowerSourceChanged);
+            Dependency.Register<object, Hamburger>(nameof(LowerSource), LowerSourceChanged);
 
-        private static void LowerSourceChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void LowerSourceChanged(Hamburger o, IPropertyChangedArgs<object> args)
         {
             o.lowerView.ItemsSource = args.NewValue;
         }
@@ -94,16 +94,16 @@ namespace Sirloin
         }
 
         public static DependencyProperty UpperSourceProperty { get; } =
-            Dependency.Register<object, AppView>(nameof(UpperSource), UpperSourceChanged);
+            Dependency.Register<object, Hamburger>(nameof(UpperSource), UpperSourceChanged);
 
-        private static void UpperSourceChanged(AppView o, IPropertyChangedArgs<object> args)
+        private static void UpperSourceChanged(Hamburger o, IPropertyChangedArgs<object> args)
         {
             o.upperView.ItemsSource = args.NewValue;
         }
 
         // End dependency property cruft
 
-        public AppView()
+        public Hamburger()
         {
             this.InitializeComponent();
 
@@ -114,6 +114,34 @@ namespace Sirloin
         {
             var splitView = this.splitView; // save a field access
             splitView.IsPaneOpen = !splitView.IsPaneOpen;
+        }
+
+        private void upperView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = e.AddedItems.FirstOrDefault() as HamburgerItem;
+            if (selectedItem != null && selectedItem.DestinationPageType != null)
+            {
+                lowerView.SelectedItem = null;
+                frame.Navigate(selectedItem.DestinationPageType);
+            }
+            else
+            {
+                upperView.SelectedItem = null;
+            }
+        }
+
+        private void lowerView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = e.AddedItems.FirstOrDefault() as HamburgerItem;
+            if (selectedItem != null && selectedItem.DestinationPageType != null)
+            {
+                upperView.SelectedItem = null;
+                frame.Navigate(selectedItem.DestinationPageType);
+            }
+            else
+            {
+                lowerView.SelectedItem = null;
+            }
         }
     }
 }

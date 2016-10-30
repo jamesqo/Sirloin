@@ -110,14 +110,14 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppView.xaml.cs">
-      <DependentUpon>AppView.xaml</DependentUpon>
+    <Compile Include="Hamburger.xaml.cs">
+      <DependentUpon>Hamburger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuItem.cs" />
+    <Compile Include="HamburgerItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AppView.xaml">
+    <Page Include="Hamburger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
